@@ -30,9 +30,10 @@ from typing import List
 # t = O(n^2)
 # s = O(n)
 
+
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        for i in range(len(arr)+1):
+        for i in range(len(arr) + 1):
             remaining_array = arr[i:] # slice array to remain with other elements from the current index element
             new_array = remaining_array[1:] # slice the elements to remove the first one to avoid returning current element in max
             max_num = 0
@@ -52,7 +53,7 @@ class Solution:
 
 class Solution2:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        right_max = -1
+        right_max = -1 # base case
 
         for i in range(len(arr) - 1, -1, -1): # loop in reverse from the last element
             new_max = max(arr[i], right_max)
@@ -62,7 +63,7 @@ class Solution2:
         return arr
 
 
-arr = [400]
+arr = [5,6,22,4,66] # 66,66,66,66,-1
 solution = Solution2()
 print(solution.replaceElements(arr))
 
