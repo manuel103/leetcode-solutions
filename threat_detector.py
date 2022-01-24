@@ -30,6 +30,7 @@ def threatDetector(textMessages):
     risk_score = []
     result = []
 
+    # score calculation
     if palindromes_size > 0:
         for array_size in palindrome_array_size:
             # get size of first n palindromes
@@ -53,6 +54,7 @@ def threatDetector(textMessages):
             else:
                 risk_score.append("Ignore")
 
+    # symbol-score matching
     for i in range(len(symbols)):
         # concatenate each  symbol with its score
         result.append(symbols[i] + " " + risk_score[i])
