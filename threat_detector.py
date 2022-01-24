@@ -32,7 +32,7 @@ def threatDetector(textMessages):
 
     if palindromes_size > 0:
         for array_size in palindrome_array_size:
-            # get score of first n palindromes
+            # get size of first n palindromes
             new_palindrome_sublists_size = palindrome_sublists_size[:array_size]
             # update `palindrome_sublists_size` by removing from original sublist size already calculated scores
             del palindrome_sublists_size[:array_size]
