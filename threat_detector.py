@@ -14,9 +14,10 @@ def palindrome_finder(message):
 
 def threatDetector(textMessages):
     # extract symbols from our message
-    symbols = [message[len(message)-3:] for message in textMessages]
+    symbols = [message[len(message)-3:]
+               for message in textMessages if type(message) == str]
     new_message = [message[:-3]
-                   for message in textMessages]  # message after removing symbol
+                   for message in textMessages if type(message) == str]  # message after removing symbol
     # get all possible palindromes in new message
     palindromes = [palindrome_finder(message) for message in new_message]
     # get size of each individual palindrome substring
@@ -58,10 +59,11 @@ def threatDetector(textMessages):
     for i in range(len(symbols)):
         # concatenate each  symbol with its score
         result.append(symbols[i] + " " + risk_score[i])
+    
+    print("\n".join(result)) # print the result on new line
+    # return "\n".join(result)  # return the result on new line
 
-    return "\n".join(result)  # return the result on new line
 
+textMessages = ['xxxayyySPY', 'xxxxxxbzzzzzzIVV', "xxAzzDJI"]
 
-textMessages = ['xxxayyySPY', 'xxxxxxbzzzzzzIVV', 'xxAyyDJI']
-
-print(threatDetector(textMessages))
+threatDetector(textMessages)
